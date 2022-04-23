@@ -1,0 +1,8 @@
+Traffic with AF Flag (QoS)
+==========================
+ip and (ip[1] & 0xfc) >> 2 == 0x20 || ip and (ip[1] & 0xfc) >> 2 == 0x22
+
+
+VoIP Traffic Only
+=================
+udp[1] & 1 != 1 && udp[3] & 1 != 1 && udp[8] & 0x80 == 0x80
