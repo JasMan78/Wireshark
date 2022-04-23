@@ -1,0 +1,35 @@
+Display Filter
+==============
+
+TimeFrame
+---------
+frame.time >= ""Jan 11, 2021 00:00:00.000""
+
+Value Range
+-----------
+http.response.code in {300..399}
+
+TextString (case-sensitive)
+---------------------------
+dhcp.option.hostname contains "Xyz"
+
+TextString (force lowercase)
+----------------------------
+lower(dhcp.option.hostname) contains "xyz"
+
+Dynamic Filter
+--------------
+tcp.stream eq ${tcp.stream}
+
+Duplicate IP addresses
+----------------------
+arp.duplicate-address-frame
+
+SYN/FIN/RST Packets
+-------------------
+tcp.flags&7 || (tcp.seq==1 && tcp.ack==1 && tcp.len==0) || tcp.len>1
+tcp.flags&7: One or more of the first 3 bits = 1 (1+2+4=7)
+
+Submenue for saved filters
+--------------------------
+MENUE1//MENUE2//MENUE3
